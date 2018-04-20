@@ -1,12 +1,13 @@
-var http = require('http');
-var Orchestrator = require('orchestrator');
+const Router = require('router');
+const fileOrchestrator = require('../file-orchestration/file-orchestrator');
 
-var orchestrator = new Orchestrator();
+const opts = {mergeParams: true};
+const router = new Router(opts);
 
+const yetio = new Router(opts);
+router.use(`/yetio/`, yetio);
 
-app.post('/abc',function(req,res) {
-    http.get(url,function(resp){
-        resp.on('data',function(buf){//process buf here which is nothing but small chunk of response data});
-            resp.on('end',function(){//when receiving of data completes});
-            });
-        });
+yetio.get(`/files`, (req, res) => fileOrchestrator.getAllFiles(req, res));
+
+module.exports = router;
+
