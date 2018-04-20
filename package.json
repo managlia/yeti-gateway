@@ -1,0 +1,17 @@
+{
+  "name": "yeti-gateway",
+  "version": "1.0.0",
+  "description": "Gateway and orchestration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Managlia",
+  "license": "ISC",
+  "dependencies": {
+    "finalhandler": "^1.1.1",
+    "orchestrator": "^0.3.8",
+    "parseurl": "^1.3.2",
+    "router": "^1.3.2"
+  }
+}
