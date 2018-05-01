@@ -8,7 +8,7 @@ const gatewayRouter = require('./gateway/routes/gateway-routes');
 
 const proxyRules = new HttpProxyRules({
     rules: {
-        '.*/yeti_': 'http://localhost:8082/yeti',
+        '.*/yeti_': 'http://localhost:8081/yeti',
         '.*/yetix': 'http://localhost:5001/yetix'
     }
 });
@@ -23,7 +23,7 @@ const server = http.createServer(function (req, res) {
         });
     } else {
         res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Cache-Control, Accept, X-TEST-EXTRA");
+        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Cache-Control, Accept, X-CHECK-ID, X-HOST-ID");
         if (req.method === 'OPTIONS') {
             res.writeHead(200);
             res.end();
